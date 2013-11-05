@@ -8,14 +8,23 @@
 		<div class="row" ng-repeat="course in classList">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">{{course.className}}</h3>
-					<p>{{course.professor}}</p>
+					<div class="row">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<h3 class="panel-title">{{course.className}}</h3>
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<p align="right">{{course.professor}}</p>
+							</div>
+					</div>
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-6">
-							<p>{{course.description}}</p>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<p>{{course.description|truncate:25:"..."}}</p> <!-- |truncate:25:"..." TODO: implement truncate-->
+							<button type="button" class="btn btn-info">More Info</button>
 						</div>
+					</div>
+					<div class="row">
 						<div class="col-md-6 col-sm-6 col-xs-6">
 							<div class="btn-group" ng-repeat="section in course.sections">
 								<div class="row">
